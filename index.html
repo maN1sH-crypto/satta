@@ -60,6 +60,23 @@
             background-color: #e7f3fe;
         }
     </style>
+	<script>
+    async function fetchResults() {
+        const response = await fetch('https://your-api-url.com/api/results');
+        const data = await response.json();
+        return data;
+    }
+
+    function displayResults(results) {
+        document.getElementById('dswr-result').textContent = results.dswr || 'XX';
+        document.getElementById('frbd-result').textContent = results.frbd || 'XX';
+        document.getElementById('gzbd-result').textContent = results.gzbd || 'XX';
+        document.getElementById('gali-result').textContent = results.gali || 'XX';
+    }
+
+    // Fetch and display results on page load
+    fetchResults().then(displayResults);
+</script>
 </head>
 <body>
     <!-- Header -->
